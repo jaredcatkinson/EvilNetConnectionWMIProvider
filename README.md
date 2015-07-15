@@ -11,10 +11,9 @@ To install:
 
 To use:
 - Open PowerShell
--- Get-WMIObject Win32_NetConnection
---- returns netstat information (Active TCP Connections, TCP Listeners, UDP Listeners)
--- Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "<powershell command>", $NULL
+- Query Network Connections: Get-WMIObject Win32_NetConnection
+- Arbitrary POSH: Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "<powershell command>", $NULL
 
-Examples 2:
-Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "whoami", $NULL
-Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "Get-Process", $NULL
+Examples:
+- Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "whoami", $NULL
+- Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "Get-Process", $NULL
